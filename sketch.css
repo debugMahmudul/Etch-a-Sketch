@@ -3,7 +3,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 80vh;
-    border: 2px solid rgb(55, 102, 117);
+    border: 2px solid rgb(16, 19, 20);
     margin: 20px auto;
 }
 
@@ -11,9 +11,6 @@
     width: 6.25%;
     aspect-ratio: 1/1;
     box-sizing: border-box;
-    background-color: lightgray;
-    border: 1px solid #ccc;
+    background-color: rgb(248, 244, 244);
+    border: 1px solid #838080cb;
 }
-
-
-
