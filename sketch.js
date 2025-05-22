@@ -1,7 +1,7 @@
 
 const container = document.querySelector(".container");
 
-//Loop to create the 16x16 grid. 
+// Loop to create the 16x16 grid. 
 for (let i = 0; i < 256; i++) {
 
     const squareDiv = document.createElement("div");
@@ -14,14 +14,13 @@ for (let i = 0; i < 256; i++) {
     });
 };
 
-//create a button
 const button = document.querySelector("button");
 
-//Create a button to receive gride size from the user
+// Create a button to receive gride size from the user
 button.addEventListener("click", () => {
     let userInputString = prompt("Enter the number of squares per side (up to 100):");
 
-    //Check for input validation
+    // Check for input validation
     if (userInputString === null) {
         alert("User cancelled the input");
         return;
@@ -38,10 +37,10 @@ button.addEventListener("click", () => {
         return;
     }
 
-    //This is to clear the container before we create the new grid
+    // This is to clear the container before we create the new grid
     container.innerHTML = "";
 
-    //Calculate the percentage width of the grid.
+    // Calculate the percentage width of the grid.
     const percentageWidth = (100 / userInputNumber);
 
     for (let i = 0; i < userInputNumber * userInputNumber; i++) {
@@ -57,6 +56,7 @@ button.addEventListener("click", () => {
         });
     }
 });
+
 
 
 
