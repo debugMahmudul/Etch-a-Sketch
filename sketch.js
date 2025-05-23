@@ -1,23 +1,61 @@
 
 const container = document.querySelector(".container");
 
-// Loop to create the 16x16 grid. 
+function getRandomHexColor() {
+    let r = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+    let g = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+    let b = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+    return `#${r}${g}${b}`;
+};
+
+let currentDrawingMode = "color";
+let activeDrawingColor = "tomato";
+
+const hiddenColorPicker = document.getElementById("hiddenColorPicker");
+const pickColorButton = document.getElementById("pickColorButton");
+const resetButton = document.getElementById("resetButton");
+const rainbowEffect = document.getElementById("rainbow");
+
+
+
+pickColorButton.addEventListener("click", () => {
+    currentDrawingMode = "color";
+    hiddenColorPicker.click();
+});
+
+hiddenColorPicker.addEventListener("input", () => {
+    activeDrawingColor = hiddenColorPicker.value;
+    currentDrawingMode = "color";
+});
+
+if (rainbowEffect) {
+    rainbowEffect.addEventListener("click", () => {
+        currentDrawingMode = "rainbow";
+    });
+};
+
+// Loop to create the 16x16 grid.
 for (let i = 0; i < 256; i++) {
 
     const squareDiv = document.createElement("div");
-
     squareDiv.classList.add("square-div");
     container.appendChild(squareDiv);
 
     squareDiv.addEventListener("mouseover", () => {
-        squareDiv.style.backgroundColor = "tomato";
+        if (currentDrawingMode === "color") {
+            if (activeDrawingColor) {
+                squareDiv.style.backgroundColor = activeDrawingColor;
+            }
+        }
+        else if (currentDrawingMode === "rainbow") {
+            squareDiv.style.backgroundColor = getRandomHexColor();
+        }
+
     });
 };
 
-const button = document.querySelector("button");
-
-// Create a button to receive gride size from the user
-button.addEventListener("click", () => {
+// Create a customizable grid up to 100 squares per side
+resetButton.addEventListener("click", () => {
     let userInputString = prompt("Enter the number of squares per side (up to 100):");
 
     // Check for input validation
@@ -50,13 +88,19 @@ button.addEventListener("click", () => {
         container.appendChild(squareDiv);
         squareDiv.style.width = percentageWidth + "%";
 
-
         squareDiv.addEventListener("mouseover", () => {
-            squareDiv.style.backgroundColor = "tomato";
+            if (currentDrawingMode === "color") {
+                if (activeDrawingColor) {
+                    squareDiv.style.backgroundColor = activeDrawingColor;
+                }
+            }
+            else if (currentDrawingMode === "rainbow") {
+                squareDiv.style.backgroundColor = getRandomHexColor();
+            }
+
         });
     }
 });
-
 
 
 
