@@ -27,6 +27,12 @@ h1 {
     gap: 10px;
 }
 
+.controls button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 #resetButton {
     color: white;
     background-color: rgb(53, 143, 228);
@@ -50,4 +56,3 @@ h1 {
     border: none;
     border-radius: 5px;
 }
-
