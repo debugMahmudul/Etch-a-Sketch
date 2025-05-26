@@ -11,16 +11,15 @@
 <body>
     <h1>Welcome to Etch-a-Sketch!</h1>
 
-    <button type="button" id="resetButton">Reset and choose Grid size</button>
+    <div class="controls">
+        <button type="button" id="resetButton">Reset and choose Grid size</button>
 
-    <!-- Button to trigger color selection -->
-    <button id="pickColorButton">Choose Drawing Color</button>
+        <button id="pickColorButton">Choose Drawing Color</button>
 
-    <!-- Hidden color input. We'll trigger this with JS -->
-    <input type="color" id="hiddenColorPicker" value="#FF0000" style="display: none;">
+        <input type="color" id="hiddenColorPicker" value="#FF0000" style="display: none;">
 
-    <button id="rainbow">Rainbow effect</button>
-
+        <button id="rainbow">Rainbow effect</button>
+    </div>
 
     <div class="container"></div>
 
@@ -28,4 +27,3 @@
 </body>
 
 </html>
-
